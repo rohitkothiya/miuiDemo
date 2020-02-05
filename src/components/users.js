@@ -9,7 +9,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Layout from "./layout"
 import axios from "axios";
-import { Link } from 'react-router-dom';
+
 import { useHistory } from "react-router-dom";
 
 const StyledTableCell = withStyles(theme => ({
@@ -56,7 +56,7 @@ function User() {
       axios
         .get(`http://localhost:3000/users`,headers)
         .then(response => {
-        console.log("response",response)
+       
            setUserData(response.data.data)
         })
         .catch(error => {

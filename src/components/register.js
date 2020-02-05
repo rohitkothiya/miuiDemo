@@ -134,7 +134,7 @@ console.log("condition",!canbeSubmitted)
           <Typography component="h1" variant="h5">
             Sign up
           </Typography>
-          <form className={classes.form}    >
+          <form className={classes.form} >
 
           <TextField
              onChange={handleChangeInputTextName}

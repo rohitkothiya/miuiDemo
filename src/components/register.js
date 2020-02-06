@@ -66,6 +66,11 @@ export default function SignUpSide() {
   const [mobile, setMobile] = useState("");
   const [isShowError, setIsShowError] = useState(false);
   const [error, setError] = useState("");
+  const [isShowConfirmPasswordError, setIsShowConfirmPasswordError] = useState(
+    false
+  );
+
+  const [confirmPassword, setConfirmPassword] = useState("");
   const handleChangeInputTextEmail = e => {
     setEmail(e.target.value);
   };
@@ -80,6 +85,11 @@ export default function SignUpSide() {
 
   const handleChangeInputTextMobile = e => {
     setMobile(e.target.value);
+  };
+
+  const handleChangeInputTextConfirmPassword = e => {
+    setIsShowConfirmPasswordError(true);
+    setConfirmPassword(e.target.value);
   };
   const handleRegister = e => {
     e.preventDefault();
@@ -103,7 +113,14 @@ export default function SignUpSide() {
   };
 
   const canBeSubmitted = () => {
-    return name && email && mobile && password;
+    return (
+      name &&
+      email &&
+      mobile &&
+      password &&
+      confirmPassword &&
+      password === confirmPassword
+    );
   };
 
   const classes = useStyles();
@@ -171,6 +188,26 @@ export default function SignUpSide() {
               value={password}
               autoComplete="current-password"
             />
+
+            <TextField
+              onChange={handleChangeInputTextConfirmPassword}
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              name="confirmPassword"
+              label="Confirm Password"
+              type="password"
+              id="confirmPassword"
+              value={confirmPassword}
+              autoComplete="current-password"
+            />
+
+            {password !== confirmPassword && isShowConfirmPasswordError && (
+              <div style={{ color: "red" }}>
+                Confirm password does not match.
+              </div>
+            )}
             {isShowError && <div style={{ color: "red" }}>{error}</div>}
 
             <Button

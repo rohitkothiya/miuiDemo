@@ -131,7 +131,9 @@ export default function MinidDrawer(props) {
         console.log("erre", error);
       });
   };
-
+  if (!localStorage.getItem("userToken")) {
+    history.push("/login");
+  }
   return (
     <div className={classes.root}>
       <CssBaseline />

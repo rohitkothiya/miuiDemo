@@ -11,7 +11,7 @@ import Layout from "./layout";
 import axios from "axios";
 
 import { useHistory } from "react-router-dom";
-import Loader from "react-loader-spinner";
+
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 const StyledTableCell = withStyles(theme => ({
   head: {
@@ -63,10 +63,6 @@ function User() {
         console.log(error);
       });
   }, [userData.length]);
-
-  if (!localStorage.getItem("userToken")) {
-    history.push("/login");
-  }
 
   const classes = useStyles();
   return (

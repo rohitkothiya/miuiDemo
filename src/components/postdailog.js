@@ -49,7 +49,7 @@ function PostDailog(props) {
 
     const body = { title, description };
     axios
-      .post(`http://localhost:3000/post`, body, headers)
+      .post(`${process.env.REACT_APP_BACKEND_URL}/post`, body, headers)
       .then(res => {
         props.fetchData();
         props.close();
@@ -76,7 +76,7 @@ function PostDailog(props) {
     };
     const body = { title, description };
     axios
-      .put(`http://localhost:3000/post/${props.currentpost._id}`, body, headers)
+      .put(`${process.env.REACT_APP_BACKEND_URL}/post/${props.currentpost._id}`, body, headers)
       .then(res => {
         console.log("res", res);
         props.fetchData();

@@ -121,7 +121,7 @@ export default function MinidDrawer(props) {
     };
 
     axios
-      .get(`http://localhost:3000/logout`, headers)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/logout`, headers)
       .then(res => {
         localStorage.removeItem("userToken");
         history.push("/");
@@ -194,8 +194,8 @@ export default function MinidDrawer(props) {
             {theme.direction === "rtl" ? (
               <ChevronRightIcon />
             ) : (
-              <ChevronLeftIcon />
-            )}
+                <ChevronLeftIcon />
+              )}
           </IconButton>
         </div>
         <Divider />

@@ -54,7 +54,7 @@ function User() {
     };
 
     axios
-      .get(`http://localhost:3000/posts`, headers)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/posts`, headers)
       .then(response => {
         setpostData(response.data.data);
       })
@@ -72,7 +72,7 @@ function User() {
     };
 
     axios
-      .get(`http://localhost:3000/posts`, headers)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/posts`, headers)
       .then(response => {
         setpostData(response.data.data);
       })
@@ -109,7 +109,7 @@ function User() {
     };
 
     axios
-      .delete(`http://localhost:3000/post/${id}`, headers)
+      .delete(`${process.env.REACT_APP_BACKEND_URL}/post/${id}`, headers)
       .then(response => {
         if (!response.data.error) {
           fetchPostData();

@@ -40,6 +40,8 @@ function ProductHero(props) {
   function handleRedirectLogin() {
     history.push("/register");
   }
+
+  console.log("env", process.env.REACT_APP_BACKEND_URL)
   return (
     <ProductHeroLayout backgroundClassName={classes.background}>
       {/* Increase the network loading priority of the background image. */}
@@ -57,7 +59,7 @@ function ProductHero(props) {
         variant="h5"
         className={classes.h5}
       >
-        Enjoy secret offers up to -70% off the best luxury hotels every Sunday.
+        Enjoy secret offers up to 60-70% off the best luxury hotels every Sunday.
       </Typography>
       <Button
         color="secondary"

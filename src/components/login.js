@@ -80,7 +80,7 @@ export default function SignInSide() {
     const body = { email, password };
 
     axios
-      .post(`http://localhost:3000/login`, body)
+      .post(`${process.env.REACT_APP_BACKEND_URL}/login`, body)
       .then(res => {
         if (!res.data.error) {
           localStorage.setItem("userToken", res.data.data.token);

@@ -96,7 +96,7 @@ export default function SignUpSide() {
     const body = { name, email, password, mobile };
 
     axios
-      .post(`http://localhost:3000/register`, body)
+      .post(`${process.env.REACT_APP_BACKEND_URL}/register`, body)
       .then(res => {
         if (!res.data.error) {
           localStorage.setItem("userToken", res.data.data.token);

@@ -54,7 +54,7 @@ function User() {
     };
 
     axios
-      .get(`http://localhost:3000/users`, headers)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/users`, headers)
       .then(response => {
         setUserData(response.data.data);
         setLoading(false);
@@ -93,19 +93,19 @@ function User() {
                 <div>Loading...</div>
               </div>
             ) : (
-              userData.map(row => (
-                <StyledTableRow key={row._id}>
-                  <StyledTableCell component="th" scope="row">
-                    {row.email}
-                  </StyledTableCell>
-                  <StyledTableCell align="right">{row.name}</StyledTableCell>
-                  <StyledTableCell align="right">{row.mobile}</StyledTableCell>
-                  <StyledTableCell align="right">
-                    {row.created_at}
-                  </StyledTableCell>
-                </StyledTableRow>
-              ))
-            )}
+                userData.map(row => (
+                  <StyledTableRow key={row._id}>
+                    <StyledTableCell component="th" scope="row">
+                      {row.email}
+                    </StyledTableCell>
+                    <StyledTableCell align="right">{row.name}</StyledTableCell>
+                    <StyledTableCell align="right">{row.mobile}</StyledTableCell>
+                    <StyledTableCell align="right">
+                      {row.created_at}
+                    </StyledTableCell>
+                  </StyledTableRow>
+                ))
+              )}
           </TableBody>
         </Table>
       </TableContainer>
